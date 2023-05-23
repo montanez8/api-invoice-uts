@@ -15,5 +15,4 @@ public interface IclienteDao extends CrudRepository<Cliente, Long> {
     public List<Region> findAllRegiones();
 
 
-
 }

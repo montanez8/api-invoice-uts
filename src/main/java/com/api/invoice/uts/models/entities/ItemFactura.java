@@ -1,10 +1,8 @@
 package com.api.invoice.uts.models.entities;
 
-import javax.persistence.*;
-
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -17,7 +15,7 @@ public class ItemFactura implements Serializable {
 
     private Integer cantidad;
 
-    @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "producto_id")
     private Producto producto;
@@ -49,8 +47,6 @@ public class ItemFactura implements Serializable {
     public void setProducto(Producto producto) {
         this.producto = producto;
     }
-
-
 
 
     private static final long serialVersionUID = 1L;

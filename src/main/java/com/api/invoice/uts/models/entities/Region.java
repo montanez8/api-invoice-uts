@@ -1,8 +1,10 @@
 package com.api.invoice.uts.models.entities;
-import java.io.Serializable;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
+import java.io.Serializable;
 
 @Entity
 @Table(name = "regiones")

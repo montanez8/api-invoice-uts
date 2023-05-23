@@ -1,14 +1,16 @@
 package com.api.invoice.uts.models.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 @Entity
-@Table(name="facturas")
-public class Factura implements Serializable{
+@Table(name = "facturas")
+public class Factura implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,17 +23,17 @@ public class Factura implements Serializable{
     @Temporal(TemporalType.DATE)
     private Date createAt;
 
-    @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "factura_id")
     private List<ItemFactura> items;
 
-    @JsonIgnoreProperties(value={"facturas", "hibernateLazyInitializer", "handler"}, allowSetters=true)
+    @JsonIgnoreProperties(value = {"facturas", "hibernateLazyInitializer", "handler"}, allowSetters = true)
     @ManyToOne(fetch = FetchType.LAZY)
     private Cliente cliente;
 
     public Factura() {
-        items=new ArrayList<>();
+        items = new ArrayList<>();
     }
 
     @PrePersist

@@ -1,12 +1,12 @@
 package com.api.invoice.uts.models.entities;
 
 import javax.persistence.*;
-
 import java.io.Serializable;
 import java.util.Date;
+
 @Entity
-@Table(name="productos")
-public class Producto  implements Serializable {
+@Table(name = "productos")
+public class Producto implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,6 +22,7 @@ public class Producto  implements Serializable {
     public void prePersist() {
         this.createAt = new Date();
     }
+
     public Long getId() {
         return id;
     }
@@ -53,6 +54,7 @@ public class Producto  implements Serializable {
     public void setCreateAt(Date createAt) {
         this.createAt = createAt;
     }
+
     private static final long serialVersionUID = 1L;
 
 }

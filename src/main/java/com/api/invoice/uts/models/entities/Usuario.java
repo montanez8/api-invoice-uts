@@ -1,8 +1,7 @@
 package com.api.invoice.uts.models.entities;
 
-import java.util.List;
-
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "usuarios")
@@ -12,10 +11,10 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @Column(unique=true, length=20)
+    @Column(unique = true, length = 20)
     private String username;
 
-    @Column(length=60)
+    @Column(length = 60)
     private String password;
 
     private Boolean enabled;
@@ -24,15 +23,14 @@ public class Usuario {
 
     private String apellido;
 
-    @Column(unique=true)
+    @Column(unique = true)
     private String email;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name="usuarios_roles", joinColumns = @JoinColumn(name="usuario_id"),
-            inverseJoinColumns=@JoinColumn(name="role_id"),
-            uniqueConstraints = {@UniqueConstraint(columnNames= {"usuario_id","role_id"})})
+    @JoinTable(name = "usuarios_roles", joinColumns = @JoinColumn(name = "usuario_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"),
+            uniqueConstraints = {@UniqueConstraint(columnNames = {"usuario_id", "role_id"})})
     private List<Role> roles;
-
 
 
     public Boolean getEnabled() {

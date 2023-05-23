@@ -1,10 +1,10 @@
 package com.api.invoice.uts.models.dao;
 
-import java.util.List;
-
 import com.api.invoice.uts.models.entities.Producto;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+
+import java.util.List;
 
 public interface IProductoDao extends CrudRepository<Producto, Long> {
 

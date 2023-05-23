@@ -1,10 +1,15 @@
 package com.api.invoice.uts.models.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import java.util.Date;
+
 @Entity
 @Table(name = "clientes")
 public class Cliente implements java.io.Serializable {// Serializable:
@@ -24,10 +29,10 @@ public class Cliente implements java.io.Serializable {// Serializable:
     @Column(name = "create_at") // Column name
     private Date createAt;
 
-    @NotNull(message="la región no puede ser vacia")
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="region_id")
-    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
+    @NotNull(message = "la región no puede ser vacia")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "region_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Region region;
 
     public Region getRegion() {
@@ -37,9 +42,6 @@ public class Cliente implements java.io.Serializable {// Serializable:
     public void setRegion(Region region) {
         this.region = region;
     }
-
-
-
 
 
     public void setId(Long id) {

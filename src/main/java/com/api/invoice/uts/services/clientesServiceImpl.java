@@ -64,9 +64,10 @@ public class clientesServiceImpl implements IclienteService {
     public List<Factura> findFacturaAll() {
         return (List<Factura>) facturaDao.findAll();
     }
+
     @Override
     public Factura saveFactura(Factura factura) {
-            return facturaDao.save(factura);
+        return facturaDao.save(factura);
     }
 
     @Override
